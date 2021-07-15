@@ -10,6 +10,7 @@ public class GameManagerScript : MonoBehaviour
     public IEnumerator WaitAndShowSucces()
     {
         yield return new WaitForSeconds(0.1f);
+        LevelManager.levelIndex++;
         UIManager.instance.Complete.SetActive(true);
         Time.timeScale = 0;
     }
@@ -35,7 +36,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void Reload()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
 }

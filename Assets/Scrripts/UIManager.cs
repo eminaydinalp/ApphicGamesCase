@@ -21,5 +21,8 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-   
+    private void Start()
+    {
+        currentLevel.text = "LEVEL " + LevelManager.levelIndex.ToString();
+    }
 }
