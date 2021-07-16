@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
 {
 	Rigidbody _rigidbody;
 
-	public float force = 190f;
+	public float force = 750f;
 	public int score;
 	public float time;
 
@@ -34,7 +34,7 @@ public class BallController : MonoBehaviour
 		{
 			TapPlayer();
 		}
-		if(!isJump && !isFinish)
+		if (!isJump && !isFinish)
 			_rigidbody.velocity += new Vector3(0, 0, Time.deltaTime * 15);
 
 	}
