@@ -9,6 +9,11 @@ public class UIManager : MonoBehaviour
 
     public GameObject Complete;
     public GameObject Fail;
+    public GameObject FinishConfetti;
+    public GameObject ObstacleEffect;
+    public GameObject CubeEffect;
+
+
     public Text currentLevel;
     public Text score;
 
@@ -24,5 +29,18 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         currentLevel.text = "LEVEL " + LevelManager.levelIndex.ToString();
+    }
+
+    public void ShowFinishConfetti()
+	{
+        Instantiate(FinishConfetti, GameObject.FindGameObjectWithTag("Finish").transform.position, transform.rotation);
+	}
+    public void ShowObstacleEffect(Transform transform)
+    {
+        Instantiate(ObstacleEffect, transform.position, transform.rotation);
+    }
+    public void ShowCubeEffect(Transform transform)
+    {
+        Instantiate(CubeEffect, transform.position, transform.rotation);
     }
 }

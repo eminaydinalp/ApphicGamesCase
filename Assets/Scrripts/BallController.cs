@@ -11,6 +11,7 @@ public class BallController : MonoBehaviour
 	public float time;
 
 	public bool isJump;
+	public bool isFinish;
 
 	private void Awake()
 	{
@@ -19,9 +20,10 @@ public class BallController : MonoBehaviour
 	private void Start()
 	{
 		isJump = false;
+		isFinish = false;
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -29,14 +31,14 @@ public class BallController : MonoBehaviour
 			_rigidbody.velocity = Vector3.zero;
 			Jump();
 		}
-		if(!isJump)
+		if(!isJump && !isFinish)
 		_rigidbody.velocity += new Vector3(0, 0, Time.deltaTime * 15);
 
 	}
 	
 	public void Jump()
 	{
-		_rigidbody.AddForce(Vector3.up * 20000 * Time.deltaTime);
+		_rigidbody.AddForce(Vector3.up * 300 * Time.deltaTime, ForceMode.Impulse);
 		transform.DORotate(new Vector3(0, 0, 180), 1);
 		isJump = false;
 	}
@@ -44,15 +46,18 @@ public class BallController : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("cube"))
 		{
+			UIManager.instance.ShowCubeEffect(collision.gameObject.transform);
 			score += 1;
 		}
 		else if (collision.gameObject.CompareTag("obstacle"))
 		{
+			UIManager.instance.ShowObstacleEffect(collision.gameObject.transform);
 			StartCoroutine(GameManagerScript.instance.WaitAndShowFail());
 		}
 		else if (collision.gameObject.CompareTag("Finish"))
 		{
-			Debug.Log("Finish");
+			_rigidbody.velocity = Vector3.zero;
+			isFinish = true;
 			UIManager.instance.score.text = "Score : " + score.ToString();
 			StartCoroutine(GameManagerScript.instance.WaitAndShowSucces());
 		}

@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac603ce91fdbbeb44829f3fe65376d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
 --- !u!4 &130669413
 Transform:
   m_ObjectHideFlags: 0
@@ -766,9 +767,9 @@ Transform:
   m_Children:
   - {fileID: 2050858590}
   - {fileID: 792674651}
-  - {fileID: 188163857}
   - {fileID: 2096912045}
   - {fileID: 1677098694}
+  - {fileID: 188163857}
   - {fileID: 477748347}
   - {fileID: 1920135356}
   m_Father: {fileID: 790707387}
@@ -1484,8 +1485,8 @@ Transform:
   m_Children:
   - {fileID: 1615783616}
   - {fileID: 725355501}
-  - {fileID: 856583309}
   - {fileID: 1725562844}
+  - {fileID: 856583309}
   - {fileID: 636451963}
   - {fileID: 504560933}
   - {fileID: 532601700}
@@ -2399,7 +2400,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5249345558442872034, guid: c57130f942bb1e44a8087c48aeb93cef, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5249345558442872034, guid: c57130f942bb1e44a8087c48aeb93cef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4266,7 +4267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4427993053661799314, guid: edab2ce795aa24045b7bceb0d0963c57, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -376
+      value: -571
       objectReference: {fileID: 0}
     - target: {fileID: 5053697100903610818, guid: edab2ce795aa24045b7bceb0d0963c57, type: 3}
       propertyPath: m_fontAsset
@@ -5426,7 +5427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 191126393}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1687394652 stripped
 Transform:
@@ -5588,7 +5589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 480328400}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1725562845
 MeshCollider:
@@ -5948,7 +5949,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5249345558442872034, guid: c57130f942bb1e44a8087c48aeb93cef, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5249345558442872034, guid: c57130f942bb1e44a8087c48aeb93cef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6187,6 +6188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Complete: {fileID: 701832051}
   Fail: {fileID: 1502441565}
+  FinishConfetti: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
+  ObstacleEffect: {fileID: 165672, guid: 146d2ff25be0f824fa285b16b2915ff3, type: 3}
+  CubeEffect: {fileID: 132274, guid: fe3d56eddfcbadb418d81896e5ec547c, type: 3}
   currentLevel: {fileID: 2063074751}
   score: {fileID: 2062028738}
 --- !u!4 &2023583572
@@ -6736,7 +6740,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 191126393}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111925281
 GameObject:

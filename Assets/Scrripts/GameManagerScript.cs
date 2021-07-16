@@ -6,12 +6,21 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance = null;
+    public int level;
 
-    public IEnumerator WaitAndShowSucces()
+	private void Start()
+	{
+        level = 0;
+	}
+	public IEnumerator WaitAndShowSucces()
     {
         yield return new WaitForSeconds(0.1f);
-        LevelManager.levelIndex++;
         UIManager.instance.Complete.SetActive(true);
+        UIManager.instance.ShowFinishConfetti();
+        level++;
+        if(level == 1)
+            LevelManager.levelIndex++;
+        yield return new WaitForSeconds(4f);
         Time.timeScale = 0;
     }
 
@@ -19,6 +28,7 @@ public class GameManagerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         UIManager.instance.Fail.SetActive(true);
+        yield return new WaitForSeconds(.5f);
         Time.timeScale = 0;
     }
 
