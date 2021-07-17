@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
 {
 	Rigidbody _rigidbody;
 
-	float force = 370f;
+	float force = 850f;
 	public int score;
 	public float time;
 
