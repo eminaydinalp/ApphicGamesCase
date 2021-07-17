@@ -46,7 +46,7 @@ public class BallController : MonoBehaviour
 	public void Jump()
 	{
 		_rigidbody.AddForce(new Vector3(0, 1, 1) * force * Time.deltaTime, ForceMode.Impulse);
-		transform.DORotate(new Vector3(0, 0, 180), 1);
+		_rigidbody.AddTorque(transform.up, ForceMode.Impulse);
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
