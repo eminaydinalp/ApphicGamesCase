@@ -41,13 +41,16 @@ public class UIManager : MonoBehaviour
     }
     public IEnumerator ShowCubeEffect(GameObject gameObject)
     {
-        yield return new WaitForSeconds(1.5f);
-        Instantiate(CubeEffect, gameObject.transform.position, transform.rotation);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(2f);
+        GameObject effect = Instantiate(CubeEffect, gameObject.transform.position, transform.rotation);
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        Destroy(effect);
     }
     public void ShowPlayerEffect(Transform transform)
     {
-        Instantiate(PlayerEffect, transform.position, transform.rotation);
+        GameObject effect = Instantiate(PlayerEffect, transform.position, transform.rotation);
+        Destroy(effect, 2f);
     }
 }

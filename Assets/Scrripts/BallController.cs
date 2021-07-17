@@ -9,7 +9,6 @@ public class BallController : MonoBehaviour
 
 	float force = 850f;
 	public int score;
-	public float time;
 
 	public bool isJump;
 	public bool isFinish;
@@ -34,6 +33,7 @@ public class BallController : MonoBehaviour
 		{
 			TapPlayer();
 		}
+
 	}
 
 	private void TapPlayer()
