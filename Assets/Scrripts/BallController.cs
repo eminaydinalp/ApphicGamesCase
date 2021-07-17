@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
 {
 	Rigidbody _rigidbody;
 
-	public float force = 750f;
+	float force = 370f;
 	public int score;
 	public float time;
 
@@ -34,33 +34,28 @@ public class BallController : MonoBehaviour
 		{
 			TapPlayer();
 		}
-		if (!isJump && !isFinish)
-			_rigidbody.velocity += new Vector3(0, 0, Time.deltaTime * 15);
-
 	}
 
 	private void TapPlayer()
 	{
 		UIManager.instance.ShowPlayerEffect(transform);
-		isJump = true;
 		_rigidbody.velocity = Vector3.zero;
-		StartCoroutine(Jump());
+		Jump();
 	}
 
-	public IEnumerator Jump()
+	public void Jump()
 	{
-		_rigidbody.AddForce(Vector3.up * force * Time.deltaTime, ForceMode.Impulse);
+		_rigidbody.AddForce(new Vector3(0, 1, 1) * force * Time.deltaTime, ForceMode.Impulse);
 		transform.DORotate(new Vector3(0, 0, 180), 1);
-		yield return new WaitForSeconds(0.1f);
-		isJump = false;
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag("cube"))
 		{
-			UIManager.instance.ShowCubeEffect(collision.gameObject.transform);
 			score += 1;
-			Destroy(collision.gameObject);
+			collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+			collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 1) * 300 * Time.deltaTime, ForceMode.Impulse);
+			StartCoroutine(UIManager.instance.ShowCubeEffect(collision.gameObject));
 		}
 		else if (collision.gameObject.CompareTag("obstacle"))
 		{

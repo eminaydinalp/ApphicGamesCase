@@ -25,6 +25,7 @@ public class GameManagerScript : MonoBehaviour
     }
     private void Start()
 	{
+        PlayerPrefs.SetInt("CurrentLevel", 0);
         if (PlayerPrefs.GetInt("CurrentLevel") == 0)
         {
             PlayerPrefs.SetInt("CurrentLevel", 1);

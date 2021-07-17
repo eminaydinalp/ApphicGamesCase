@@ -39,9 +39,12 @@ public class UIManager : MonoBehaviour
     {
         Instantiate(ObstacleEffect, transform.position, transform.rotation);
     }
-    public void ShowCubeEffect(Transform transform)
+    public IEnumerator ShowCubeEffect(GameObject gameObject)
     {
-        Instantiate(CubeEffect, transform.position, transform.rotation);
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(CubeEffect, gameObject.transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
     public void ShowPlayerEffect(Transform transform)
     {
